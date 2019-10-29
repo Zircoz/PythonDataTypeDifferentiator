@@ -1,8 +1,21 @@
-def takeInput():
+'''
+This script detects if an input is integer or float or string.
+
+Pros:
+It can also detect if a given input has only float/integer despite of it being in form of a string.
+For example, if the input is '258'. It will detect it as an integer and not string.
+Same for the float.
+
+Limitations:
+The logic breaks if anything other than int/str/float is input.
+This limitation may be removed in later iterations of the script.
+'''
+
+def takeInput():  #takes input
     inp = input("Enter Integer/Float/String: \n")
     makeStringCheckDot(inp)
 
-def floatVsString(stringEntered): #FN3
+def floatVsString(stringEntered): #Checks for float or string (FN3)
     #print("InFN3")
     try:
         floatInput = float(stringEntered)
@@ -13,7 +26,7 @@ def floatVsString(stringEntered): #FN3
         else:
             somethingElse()
 
-def intVsSomethingElse(stringEntered): #FN2
+def intVsSomethingElse(stringEntered): #checks for integer or string (FN2)
     #print("InFN2")
     try:
         intInput = int(stringEntered)
@@ -28,11 +41,11 @@ def somethingElse(): #FN4
     #can be coded further to check for other data types
     print("Input is something else.")
     
-def makeStringCheckDot(x):   #FN1
+def makeStringCheckDot(x):   #Makes input a string and checks for demical (FN1)
     stringEntered = str(x).strip()
     if '.' in stringEntered:
         floatVsString(stringEntered)
     else:
         intVsSomethingElse(stringEntered)
 
-takeInput()
+takeInput() #calls for input
